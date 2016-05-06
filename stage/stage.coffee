@@ -1,2 +1,3 @@
-console.log "Hello from ./stage/stage.coffee"
-app = new nanobox.Quickdocs( $("body") )
+window.init = () ->
+  quickdoc = new nanobox.Quickdocs $("body"), {host:"http://localhost:7235"}
+  quickdoc.build()
