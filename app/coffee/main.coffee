@@ -47,7 +47,8 @@ class Quickdocs
     # the quickdoc failed to load
     ).fail( =>
       @$node.addClass("failed")
-      @$failed = @$node.append("<p>Unable to load quickdoc, please try again. If the problem persists, please <a href=''>let us know</a></p>")
+      @$failed = $("<p>Unable to load quickdoc, please try again. If the problem persists, please <a href=''>let us know</a></p>")
+      @$node.append(@$failed)
     )
 
     # open it if it's not already, otherwise the new content will just be loaded

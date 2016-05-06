@@ -26,7 +26,7 @@ $dashboard_129:   #E21954;
   &.open              {left:0px;}
   &.failed            {
     &:before          {content:""; opacity:0.50; position:absolute; top:0px; left:0px; width:100%; height:100%; background:$black; pointer-events:none;}
-    p                 {position:absolute; top:50%; left:0px; width:100%; text-align:center; color:$white;
+    p                 {@include font-size(14px); position:absolute; top:50%; left:0px; width:100%; padding:40px; text-align:center; color:$white;
       a               {color:$dashboard_15; text-decoration:underline;}
     }
   }
