@@ -11,7 +11,7 @@ class Quickdocs
     $el.append @$node
 
     # add svg icons
-    # castShadows($(".shadow-parent"))
+    castShadows @$node
 
     # closed by default
     @is_open = false
@@ -42,7 +42,9 @@ class Quickdocs
     # show the quickdoc
     ).done( (data) =>
       @$node.find(".title").html(data.title)
-      @$node.find(".body").html(data.body)
+      $body = @$node.find(".body").html(data.body)
+      console.log $body
+      castShadows $body
 
     # the quickdoc failed to load
     ).fail( =>
