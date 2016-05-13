@@ -3,8 +3,12 @@ component = require 'jade/component'
 #
 class Quickdocs
 
-  # constructor
-  constructor: ($el, @options) ->
+  #
+  constructor: ($el, @options={}) ->
+
+    # set defaults
+    if !@options.logsEnabled then @options.logsEnabled = false
+    if !@options.loglevel then @options.logLevel = "INFO"
 
     #
     @$node = $(component())
