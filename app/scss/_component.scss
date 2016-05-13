@@ -20,6 +20,11 @@ $dashboard_129:   #E21954;
 }
 
 //
+#quickdoc-toggle      {position:absolute; top:0px; right:0px; z-index:1; cursor:pointer;
+  // &:hover svg path    {stroke:$dashboard_78;}
+}
+
+//
 #quickdocs            {position:fixed; top:0px; bottom:0px; left:0px; z-index:100000; width:350px; height:100%; transition:left 60ms;
 
   &.closed            {left:-350px;}
@@ -32,12 +37,10 @@ $dashboard_129:   #E21954;
   }
 
   //
-  header              {width:100%; padding:9px 18px; color:$white; background:$dashboard_73; height:45px;
-    // &:before          { @include pagodacons(bold, '\006B'); display:inline-block; position:relative; top:3px; left:-4px; float:left; margin-right:10px; color:$dashboard_79; }
-    h1                {@include font-size (16px); display:inline-block; width:auto; margin:0px; padding:0px; font-weight:normal; line-height: 28px;}
-    .close            {@include font-size (18px); position:absolute; top:0px; right:0px; margin:12px; color:$white; cursor:pointer;
-      &:hover         {color:$dashboard_68;}
-    }
+  header              {display:flex; align-items:center; justify-content:space-between; padding:9px 18px; color:$white; background:$dashboard_73;
+    svg#docs          {margin-right:12px;}
+    h1                {@include font-size (16px); margin-right:auto; padding:0px; font-weight:normal;}
+    svg#close-x       {cursor:pointer;}
   }
 
   //
@@ -47,37 +50,15 @@ $dashboard_129:   #E21954;
     h2                {@include font-size (15px, 20px); font-weight: bold; color: $dashboard_49 !important; margin: 35px 0 15px; padding-bottom: 0 !important; border: none; }
     ul                {list-style: none; padding-left: 0; margin: 10px 0 20px;
       li              {@include font-size (14px, 22px); color: $dashboard_15;}
-      &.doc-links li:first-child { @include font-size (11px, 18px); color: $dashboard_19; text-transform: uppercase; letter-spacing: .5px; }
     }
-    p                 {@include font-size (14px, 24px); color: $dashboard_19; margin-bottom: 20px;
-      &.intro         {@include font-size (15px, 24px); color: $dashboard_25; }
-      &.doc-link      {@include font-size (13px, 0); color: $dashboard_15; margin-bottom: 15px;
-        a             {
-          // &:after     { @include pagodacons(bold, '\006E'); position: absolute; top: 20px; padding-left: 9px; }
-        }
-      }
-      &.note, &.warn  {position: relative; margin-left: 8px; padding: 0 0 0 15px; color: $dashboard_14;
-        // &:before      { content:"\2B22"; font-family: Pagodacons; font-style: normal; font-size: 20px; color: $dashboard_116; margin: 0 6px 0 -25px; top: -3px; position: relative; }
-        &:after       {content: "!"; font-size: 14px; font-style: normal; position: absolute; top: 0; left: -3px; color: $white; }
-      }
-      &.warn:before   {color: $dashboard_129;}
-    }
-
+    p                 {@include font-size (14px, 24px); color: $dashboard_19; margin-bottom: 20px;}
     hr                {border: 0; height: 1px; background-color: $dashboard_9; margin:24px 0 6px }
-
     table             {@include font-size(12px, 18px); width: 100%; margin: 0 0 30px;
       tbody           {background: none;
         tr            {color: $dashboard_92;
           td          {border-top: 1px $dashboard_9 solid; border-width: 1px 0 0 0; padding: 8px 10px 8px 0;}
-          &.title-row {color: $dashboard_19; td {border: none;}}
         }
       }
     }
   }
-}
-
-//
-#quickdoc-toggle      {position:absolute; top:0px; right:0px; z-index:1; cursor:pointer; width:20px; height:20px; background:red;
-  // &:after             { @include pagodacons(bold, '\006B'); display:inline-block; color:$dashboard_35; font-size:68px; margin-top: 7px; }
-  &:hover:after       {color:$dashboard_78;}
 }

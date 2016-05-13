@@ -3,6 +3,10 @@
 
 # initialize, selecting the type (either live, or historic)
 quickdocs = new nanobox.Quickdocs $("body"), {}
+quickdocs.build()
+
+# activate any toggles on the current page (to be done after the page is ready)
+quickdoc.activateToggles()
 ```
 
 #### Options
@@ -20,31 +24,6 @@ quickdocs = new nanobox.Quickdocs $("body"), {}
 }
 ```
 
-#### Styled body elements
-```scss
-
-<!-- general -->
-a, h1, h2, hr
-
-p
-  &.intro
-  &.doc-link
-    a
-      &:after
-  &.note, &.warn
-    &:after
-  &.warn
-    &:before
-
-<!-- lists -->
-ul
-  li
-    &.doc-links li:first-child
-
-<!-- tables -->
-table
-  tbody
-    tr
-      td
-      &.title-row
-```
+## Styles
+This component expects the loaded data to be in Markdown (.md) format and so it's
+styles are handled accordingly.
