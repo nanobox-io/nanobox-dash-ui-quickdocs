@@ -27,7 +27,7 @@ class Quickdocs
     # because the element we're selecting is added by that library
     @$node.find('#close-x').click (e) => @toggle()
 
-  # activate andy quickdoc toggles on the page
+  # activate any quickdoc toggles on the page
   activateToggles : () -> $(".nanobox-dash-ui-quickdoc-toggle").click (e) => @load($(e.currentTarget).data("path"))
 
   # this is called from the #qd-toggle buttons, with bound qd_options { body:*, title:*, [ section:* ]}
@@ -44,10 +44,10 @@ class Quickdocs
     # show the quickdoc
     ).done( (data) =>
       @$node.find(".title").html(data.title)
-      @$body = @$node.find(".body").html(data.body)
+      $body = @$node.find(".body").html(data.body)
 
       # load any svg icons that are in the body
-      castShadows(@$body)
+      castShadows($body)
 
     # the quickdoc failed to load
     ).fail( =>
