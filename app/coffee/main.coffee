@@ -21,7 +21,7 @@ class Quickdocs
     @$node.find('#close-x').click (e) => @toggle()
 
   # activate any quickdoc toggles on the page
-  activateToggles : () -> $(".nanobox-dash-ui-quickdoc-toggle").click (e) => @load($(e.currentTarget).data("path"))
+  activateToggles : () -> $(".nanobox-dash-ui-quickdoc-toggle").click (e) => @load($(e.currentTarget).data("qd-path"))
 
   # this is called from the #qd-toggle buttons, with bound qd_options { body:*, title:*, [ section:* ]}
   load : (path) ->
