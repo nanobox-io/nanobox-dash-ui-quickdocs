@@ -1,7 +1,6 @@
 window.init = () ->
-  quickdoc = new nanobox.Quickdocs $("body"), {host:"http://localhost:7235"}
-  quickdoc.build()
-  quickdoc.activateToggles()
+  nanobox.Quickdocs.host = "http://localhost:7235"
+  nanobox.Quickdocs.activateToggles()
 
-  #
+  # show the toggle button
   castShadows(".shadow-parent")

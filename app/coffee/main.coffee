@@ -3,22 +3,15 @@ component = require 'jade/component'
 #
 class Quickdocs
 
-  # closed by default
-  _is_open = false
+  host:     undefined # where to pull the docs from
+  _is_open: false # closed by default
 
   #
-  constructor: ($el, @options={}) ->
-
-    # set defaults
-    if !@options.logsEnabled then @options.logsEnabled = false
-    if !@options.loglevel then @options.logLevel = "INFO"
+  constructor: (@$body) ->
 
     #
     @$node = $(component())
-    $el.append @$node
-
-  #
-  build : () ->
+    @$body.append @$node
 
     # add svg icons
     castShadows(@$node)
@@ -38,15 +31,15 @@ class Quickdocs
     if @$failed then @$failed.remove()
 
     # attempt to get the quickdoc
-    $.ajax(
-      url: "#{@options.host}#{path}"
+    $.get(
+      url: "#{@host}#{path}"
 
     # show the quickdoc
     ).done( (data) =>
       @$node.find(".title").html(data.title)
       $body = @$node.find(".body").html(data.body)
 
-      # load any svg icons that are in the body
+      # load any svg icons that are in the body of the quickdoc
       castShadows($body)
 
     # the quickdoc failed to load
@@ -75,4 +68,4 @@ class Quickdocs
 
 #
 window.nanobox ||= {}
-nanobox.Quickdocs = Quickdocs
+nanobox.Quickdocs = new Quickdocs($("body"))
