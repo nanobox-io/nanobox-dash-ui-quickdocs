@@ -8,6 +8,11 @@ nanobox.Quickdocs.host = "http://127.0.0.1"
 nanobox.Quickdocs.activateToggles()
 ```
 
+#### Quickdoc toggle
+```haml
+.nanobox-dash-ui-quickdocs-toggle{data: {qd_path: "/path/to/qd"}}
+```
+
 ## Data Structure
 ```json
 {
